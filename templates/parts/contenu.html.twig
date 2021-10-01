@@ -1,0 +1,52 @@
+{% block contenu %}
+    <br>
+    <marquee BEHAVIOR=ALTERNATE WIDTH=600 ><h2 class="marquee">{{ date_now }}</h2></marquee>
+    {#pour heure minute secondes : ajoute H:i:s#}
+    <br>
+    <label for="nouvelleBucket"> Nouvel objectif :</label>
+    <input name="nouvelleBucket" type="text" placeholder="Nouvelle bucket">
+
+    <fieldset>
+        <legend>Mes objectifs : </legend>
+        <ul>
+            <li>🥂 </li>
+            <li>🥂</li>
+            <li>🥂</li>
+            <li>🥂</li>
+        </ul>
+    </fieldset>
+
+    {#<div class="maDiv" style="border: deeppink dotted 15px; width: 500px;">#}
+    {#<img src="https://product-image.juniqe-production.juniqe.com/media/catalog/product/seo-cache/x800/89/48/89-48-101P/T-Rex-Animal-Crew-Affiche.jpg">#}
+    {#<img src="https://images.uncyclomedia.co/desencyclopedie/fr/2/27/RaptorJesus.jpg" height="600px" style=" border-radius: 8px">#}
+    {#    <img src="/images/RaptorJesus.jpg" height="550px">#}
+    {#</div>#}
+
+    </div>
+
+    </body>
+    </html>
+{% endblock %}
+
+    {#
+    {% set personne = {
+'Prénom' : 'Lolette',
+'Nom' : 'Gui',
+'Age': 99,
+'Ville': 'Brest'
+} %}
+
+<ul style="list-style: none; display: flex; justify-content: space-evenly">
+{% for item in menu %}
+<li><a style="text-decoration: none; color: antiquewhite" href="">{{ item }}</li>
+{% endfor %}
+</ul>
+
+
+<h2>Profil : </h2>
+{% for key, val in personne %}
+<b> {{ key }}</b> : <p>{{ val }}</p>
+{% endfor %}
+
+
+#}

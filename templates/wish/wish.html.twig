@@ -1,0 +1,34 @@
+{% set titre="Ma Bucket List" %}
+{% extends"base.html.twig" %}
+
+
+
+{% block contenu %}
+<div class="contenu">
+<div class="superposer">
+    <span class="carte">
+    <fieldset>
+        <legend>Ce que je veux faire avant de <b>mourir</b> : </legend>
+        <label for="nouvelleBucket"> Nouvel objectif :</label>
+        <input name="nouvelleBucket" type="text" placeholder="Aller dans l'espace 🚀">
+        <button>Ajouter</button>
+
+        <br><br>
+
+        <ul class="listeVoeux">
+            {% for wish in wishes %}
+                <li><a href="{{ path('app_detail', {'id':wish.id}) }}">{{ wish.title }}</a> </li>
+            {% endfor %}
+        </ul>
+    </fieldset>
+        </span>
+
+    <span class="mesdinos">
+        <img class="tyranosaure" src="{{ asset('/images/dino.png') }}">
+        <img class="taurosaurus" src="{{ asset('/images/triceratops.png') }}">
+
+    </span>
+</div>
+</div>
+{% endblock%}
+

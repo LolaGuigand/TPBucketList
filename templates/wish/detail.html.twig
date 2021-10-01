@@ -1,0 +1,32 @@
+
+{% extends"base.html.twig" %}
+{% block stylesheet%}
+    <link rel="stylesheet" href="">
+{% endblock%}
+
+{% block contenu %}
+<div class="uniondino">
+    <fieldset>
+       <legend>{{titre }} : Détail du souhait</legend>
+        <ul class="detailSouhait">
+
+            <li>  <label for="detail"> Le souhait :</label> {{ wish.title }} </li>
+            {%if wish.description%}
+                <li> <label for="detail"> Description :</label> {{ wish.description }}</li>
+            {% endif %}
+            <li> <label for="detail"> Par :</label> {{ wish.author }}</li>
+                {%if wish.dateCreated%}
+            <li>le {{ wish.dateCreated|date("D d M Y") }}.{% endif %}</li>
+        </ul>
+        <button type="button"><a href="{{ asset('/wish/list') }}">Retour à la bucket-list</a></button>
+    </fieldset>
+
+    <div class="mesdinos">
+        <img class="tyranosaure" src="{{ asset('/images/dino.png') }}">
+        <img class="taurosaurus" src="{{ asset('/images/triceratops.png') }}">
+
+    </div>
+</div>
+{% endblock%}
+
+

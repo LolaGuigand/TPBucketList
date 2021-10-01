@@ -1,0 +1,68 @@
+
+<!doctype>
+<html lang="fr">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+{% block titre%}{% endblock%}
+{% block stylesheet%}{% endblock%}
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ asset('/images/favicon.png') }}" type="image/gif" sizes="16x16">
+    <meta charset="UTF-8">
+    <title> {{ titre }}</title>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+
+        <div class="titrelogo">
+            <a href="http://127.0.0.1:8000/home">
+                <img class="logo" src="{{ asset('/images/logo.svg') }}" width="100px">
+            </a>
+            <a href="{{ asset('/wish/list') }}">
+                 <h1 class="titre">{{ titre}}</h1>
+            </a>
+
+        </div>
+
+        <br>
+
+
+    <nav>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href=home>{{ titre |upper}}</a>
+            </li>
+            {% for item in menu %}
+                {% if item[1] %}
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{ url(item[1]) }}">{{ item[0] }}</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">{{ item [0]}}</a>
+                    </li>
+                    {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+
+    </header>
+
+    <div class="contenu">
+      {% block contenu %}{% endblock %}
+    </div>
+
+   <footer>
+       <hr>
+        @BucketList&#169;, {{ "now"|date("Y") }}
+       <br>
+       <a href=legal-stuff>Mentions légales</a>
+   </footer>
+
+
+
+</div>
+</body>
+</html>

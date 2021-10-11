@@ -12,6 +12,7 @@
 
             <li>  <label for="detail"> Le souhait :</label> {{ wish.title }} </li>
             {%if wish.description%}
+                <li>  <label for="detail"> Catégorie :</label> {{ wish.category.name }}</li>
                 <li> <label for="detail"> Description :</label> {{ wish.description }}</li>
             {% endif %}
             <li> <label for="detail"> Par :</label> {{ wish.author }}</li>

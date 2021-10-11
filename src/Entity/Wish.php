@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\WishRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=WishRepository::class)
@@ -19,16 +20,26 @@ class Wish
 
     /**
      * @ORM\Column(type="string", length=250)
+     * @Assert\NotBlank(message="Le titre du Wish doit être renseigné !")
+     * @Assert\Length(min="2", max="255",
+     *     minMessage="Trop court ! Au moins deux caractères !",
+     *     maxMessage="Trop long ! Jusqu'à 255 caractères !"
+     *     )
      */
     private $title;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     *
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(message="Le Wish doit avoir un auteur !")
+     * @Assert\Length(max="50",
+     *     maxMessage="Trop long ! Jusqu'à 50 caractères !"
+     *     )
      */
     private $author;
 
@@ -42,6 +53,16 @@ class Wish
      */
     private $dateCreated;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="whishes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
+
+    public function __construct() {
+        $this->isPublished = true;
+        $this->dateCreated= new \DateTime("now");
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +124,18 @@ class Wish
     public function setDateCreated(?\DateTimeInterface $dateCreated): self
     {
         $this->dateCreated = $dateCreated;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

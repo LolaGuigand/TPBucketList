@@ -1,11 +1,50 @@
-{% block content %}
-<div class="row mt-5">
-    <div class="row">
-        <form action method ="POST">
-            <div class="mb-3">
+{% extends"base.html.twig" %}
 
-            </div>
-        </form>
+{% block contenu %}
+
+
+ <fieldset>
+     <legend>Nouveau Wish</legend>
+    <div class="form is-centered">
+{{ form_start(wishForm) }}
+
+        <div class="elementForm">
+            <label class="label">
+               {{ form_label(wishForm.title) }}
+            </label>
+            {{ form_widget(wishForm.title, {'attr':{'class':'input is-success'}}) }}
+        </div>
+
+        <div class="elementForm">
+            <label class="label">
+                {{ form_label(wishForm.description) }}
+            </label>
+            {{ form_widget(wishForm.description, {'attr':{'class':'textarea is-success'}}) }}
+        </div>
+
+        <div class="elementForm">
+            <label class="label">
+                {{ form_label(wishForm.author) }}
+            </label>
+            {{ form_widget(wishForm.author, {'attr':{'class':'input is-success'}}) }}
+        </div>
+        <div class="elementForm">
+            <label class="label">
+                {{ form_label(wishForm.category) }}
+            </label>
+            {{ form_widget(wishForm.category, {'attr':{'class':'select'}}) }}
+        </div>
+
+
+    {{ form_widget(wishForm) }}
+    <input class="elementForm" id="btn" type="submit" value="Ajouter le Wish">
+    {{ form_end(wishForm) }}
+
     </div>
-</div>
+</fieldset>
+{#    <span class="mesdinos">
+        <img class="tyranosaure" src="{{ asset('/images/dino.png') }}">
+        <img class="taurosaurus" src="{{ asset('/images/triceratops.png') }}">
+    </span>#}
+
 {% endblock %}

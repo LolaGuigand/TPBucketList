@@ -21,9 +21,12 @@
                 <img class="logo" src="{{ asset('/images/logo.svg') }}" width="100px">
             </a>
             <a href="{{ asset('/wish/list') }}">
-                 <h1 class="titre">{{ titre}}</h1>
+                 <h1 class="title is-big">{{ titre}}</h1>
             </a>
-
+{% if app.user %}
+            <h2>Bonjour {{ app.user.pseudo }} ! </h2>
+            <a href="{{ path('app_logout') }}">Déconnexion</a>
+{% endif %}
         </div>
 
         <br>
@@ -32,7 +35,7 @@
     <nav>
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href=home>{{ titre |upper}}</a>
+                <a class="nav-link active" aria-current="page" href={{ asset('/home') }}>{{ titre |upper}}</a>
             </li>
             {% for item in menu %}
                 {% if item[1] %}
@@ -49,7 +52,15 @@
     </nav>
 
     </header>
-
+<body>
+{% for categorie, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash flash-{{ categorie }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+</body>
     <div class="contenu">
       {% block contenu %}{% endblock %}
     </div>
@@ -58,7 +69,7 @@
        <hr>
         @BucketList&#169;, {{ "now"|date("Y") }}
        <br>
-       <a href=legal-stuff>Mentions légales</a>
+       <a href="{{ asset('/legal-stuff') }}">Mentions légales</a>
    </footer>
 
 

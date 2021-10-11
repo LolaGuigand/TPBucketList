@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Category;
 use App\Entity\Wish;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -17,6 +18,18 @@ class WishRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Wish::class);
+    }
+
+    public function findAllWithCategories(){
+        $qb=$this->createQueryBuilder('wish')
+            //->andWhere('wish.isPublished=true')
+            ->join('w.category', 'c')
+            ->addSelect('category')
+            ->orderBy('wish.dateCreated')
+            ;
+
+        $query=$qb->getQuery();
+        return $query->getResult();
     }
 
     // /**
@@ -47,4 +60,6 @@ class WishRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
 }

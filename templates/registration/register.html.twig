@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block contenu %}
+    <h1>Inscription</h1>
+    <fieldset>
+        {{ form_start(registrationForm) }}
+
+        <div class="elementForm">
+            <label class="label">
+                {{ form_label(registrationForm.email) }}
+            </label>
+            {{ form_widget(registrationForm.email, {'attr':{'class':'input'}}) }}
+        </div>
+
+
+        <div class="elementForm">
+            <label class="label">
+                {{ form_label(registrationForm.pseudo) }}
+            </label>
+            {{ form_widget(registrationForm.pseudo, {'attr':{'class':'input'}}) }}
+        </div>
+        <div class="elementForm">
+            <label class="label">
+                Password
+            </label>
+            {{ form_widget(registrationForm.plainPassword, {'attr':{'class':'input'}}) }}
+        </div>
+
+
+        <div class="elementForm">
+            <label class="label">
+                J'accepte les termes et conditions
+            </label>
+            {{ form_widget(registrationForm.agreeTerms) }}
+        </div>
+
+        <button type="submit" class="submit">Inscription</button>
+        {{ form_end(registrationForm) }}
+
+    </fieldset>
+{% endblock %}

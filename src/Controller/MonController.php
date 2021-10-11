@@ -14,11 +14,11 @@ class MonController extends AbstractController
     private $menu = [
         ["Home", 'app_home'],
         ["About Us", "app_about"],
-        ["Blog", ""],
+        ["Add Wish", "app_add-wish"],
         ["Wish List", "app_list"],
         ["Contact", "app_contact"],
-        ["Login", ""],
-        ["Register", ""]
+        ["Login", "app_login"],
+        ["Register", "app_register"]
     ];
     private$titre="Ma Bucket List";
 

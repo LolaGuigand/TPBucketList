@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 
 body{
 
@@ -9,10 +10,14 @@ body{
 .container{
     color:white;
     text-align: center;
-    background-color: #76d7c4;
+    background: linear-gradient(orangered, hotpink, #76d7c4,  #76d7c4, forestgreen);
     margin: 0 auto;
     z-index: auto;
 
+}
+.title
+{
+    color: whitesmoke!important;
 }
 .contenu{
     min-height: 70%;
@@ -28,9 +33,7 @@ img {
 .logo{
     color:white;
 }
-.titre {
-    font-family: 'Patrick Hand', cursive;
-}
+
 .titrelogo{
     display: flex;
     justify-content: space-between;
@@ -44,23 +47,42 @@ a:hover{
     color: deeppink;
 }
 
-input{
+input, textarea, select {
     border-radius: 8px;
     box-shadow: darkslateblue 2px 2px 1px;
+    width:250px;
 }
-button{
+select{
+    background-color: coral;
+    width: fit-content!important;
+    font-family: 'Patrick Hand', cursive!important;
+    text-align: center;
+}
+
+button, #btn{
     border-radius: 8px;
     box-shadow: darkslateblue 2px 2px 1px;
     background-color:  #CD5C5C ;
 }
-button:hover{
+button:hover, #btn:hover{
     background-color: #FFC300;
 }
 /*li{
     list-style:none;
 }*/
 
-.listeVoeux, .detailSouhait{
+.flash{
+    padding:10px;
+    margin:20px;
+    border-radius: 10px;
+}
+.flash-success{
+    background-color: green;
+}
+.flash-error{
+    background-color: red;
+}
+.listeVoeux, .detailSouhait, .formulaire{
     width:600px;
     list-style:  circle !important;
     text-align: justify;
@@ -69,7 +91,32 @@ button:hover{
     margin-left: auto;
     font-size: large;
     padding:5px;
+}
+.categ{
+    color: #f4755a ;
+}
+.formulaire{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: center;
+    margin-left: 200px;
 
+}
+
+.elementForm{
+    padding:4px;
+
+}
+
+fieldset {
+    border: 2px solid whitesmoke !important;
+    width:650px;
+    min-height: 300px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top:10px;
+    z-index: 1;
 }
 label{
     color:deeppink;
@@ -109,16 +156,6 @@ footer {
     text-align: center;
 }
 
-
-fieldset {
-    border: 2px solid whitesmoke !important;
-    width:650px;
-    min-height: 300px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top:10px;
-    z-index: 1;
-}
 hr{
 
     border-top: whitesmoke 2px;

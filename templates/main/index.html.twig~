@@ -1,0 +1,29 @@
+{% set titre="Ma Bucket List" %}
+{% extends"base.html.twig" %}
+ {% block titre %}
+ {% endblock %}
+
+
+{% block contenu %}
+    <br>
+    <marquee BEHAVIOR=ALTERNATE WIDTH=600 ><h2 class="marquee">{{ date_now }}</h2></marquee>
+    {#pour heure minute secondes : ajoute H:i:s#}
+    <h1>Bienvenue !</h1>
+
+
+   {# <div class="maDiv" style="border: deeppink dotted 15px; width: 500px;">#}
+    {#<img src="https://product-image.juniqe-production.juniqe.com/media/catalog/product/seo-cache/x800/89/48/89-48-101P/T-Rex-Animal-Crew-Affiche.jpg">#}
+    {#<img src="https://images.uncyclomedia.co/desencyclopedie/fr/2/27/RaptorJesus.jpg" height="600px" style=" border-radius: 8px">#}
+        <img src="/images/RaptorJesus.jpg" height="550px">
+   {# </div>#}
+
+    </div>
+    <a class="lienBucket" href=wish/list>Accéder à ma bucket list</a>
+    </body>
+    </html>
+{% endblock %}
+
+
+{% block menuli %}
+<a class="nav-link" aria-current="page" href="#">Formation</a>
+{% endblock %}

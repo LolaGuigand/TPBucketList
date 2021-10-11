@@ -1,0 +1,31 @@
+body {
+    overflow: hidden;
+    min-height: 100vh;
+    cursor: crosshair;
+}
+.bubble {
+    position: absolute;
+    border-radius: 300px;
+    background: rgba(255, 166, 0, 0.6);
+    opacity: 0;
+    animation: anim 8s forwards; /* permet a la bulle de rester dans l'état où elle etait à la fin de l'anim */
+    filter: hue-rotate(0deg); /*couleur initiale */
+}
+h3 {
+    font-size: 10rem;
+    text-align: center;
+    margin-top: 20px;
+    color: rgba(128, 128, 128, 0.555);
+}
+@keyframes anim {
+    to {
+        top: -250px;
+        left: var(--left); /* on injecte une variable*/
+        opacity: 1;
+        filter: hue-rotate(720deg); /* fait 2 tours du cercle chromatique */
+    }
+}
+#countdown{
+    font-size: 6rem;
+    text-align: right;
+}
